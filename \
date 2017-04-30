@@ -1,0 +1,13 @@
+#include "cache_init.h"
+#include "hexToBin.h"
+
+int main(int argc, char *argv[])
+{
+
+char *add = hexToBin(argv[4]);
+printf("%s\n", add);
+
+struct cacheBlock * b = makeCacheA(argv, add, 1);
+printf("%d\n", b->tag);
+return 0;
+}
