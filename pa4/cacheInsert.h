@@ -16,10 +16,9 @@ struct cacheBlock** cacheInsert(char * argv[], struct cacheBlock * arr[], struct
 {
 
   cache->valid=1;
-  //arr[cache->index] = (struct cacheBlock *) malloc(sizeof(struct cacheBlock));
-  if(strcmp(argv[2], "direct")==0)
+   if(strcmp(argv[2], "direct")==0)
   {
-    //printf("arrsize: %ld  index:  %ud\n\n", sizeof(arr), cache->index);
+    
     arr[cache->index] = cache; return arr; 
 
   }
@@ -28,7 +27,7 @@ struct cacheBlock** cacheInsert(char * argv[], struct cacheBlock * arr[], struct
   {
     if(arr[0] -> valid == 0 )
     {
-     // cache -> valid =1;
+     
       cache -> linkcount=1;
       arr[0] = cache;
       return arr;
@@ -60,27 +59,6 @@ struct cacheBlock** cacheInsert(char * argv[], struct cacheBlock * arr[], struct
       return arr;
     }
 
-    /*
-       for(i=0; i<sizeof(arr); i++)
-       {
-       if(arr[i] == NULL)
-       {
-       arr[i] = (struct cacheBlock *) malloc(sizeof(struct cacheBlock));
-       arr[i] -> valid = 1;
-       arr[i] = cache;
-       return arr;
-       }
-       if(arr[i]->valid == 0)
-       {
-       arr[i] = cache;
-       arr[i] -> valid = 1;
-       return arr; 
-       }
-       }
-    //cacheFull remove first element
-    arr[0] = cache;
-    return arr; 
-    */
 
   }
 
@@ -103,7 +81,7 @@ struct cacheBlock** cacheInsert(char * argv[], struct cacheBlock * arr[], struct
         b=b->next;
       }
       b->next=cache;
-      //free(b);
+     
       return arr;
     }
     else // if index LL is == blockSize
@@ -118,7 +96,7 @@ struct cacheBlock** cacheInsert(char * argv[], struct cacheBlock * arr[], struct
         b=b->next;
       }
       b->next=cache;
-      //free(temp);
+      
       return arr; 
     }
   }
