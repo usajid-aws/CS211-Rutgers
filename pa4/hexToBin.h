@@ -9,10 +9,7 @@
 
 char bin[48];
 char *  hexToBin(char *hex)
-{
- 
-  
- // char * bin = (char *) malloc (sizeof(char)*48); 
+{  
   int len = strlen(hex);
   int i = 0; bin[0]='\0';
   for(i=0; i<48-(4*(len-3)); i++)
@@ -102,9 +99,7 @@ int indexToInt(char * index)
     result += pow(2, len);
     len--;
   }
- // printf("input: %s\n" ,index);
-  // printf("output: %d\n\n", result);
-  return result;
+   return result;
 
 }
 
