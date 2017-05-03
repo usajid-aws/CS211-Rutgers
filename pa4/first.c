@@ -7,10 +7,6 @@
 #include <stdbool.h>
 
 
-char * t1 = "trace.txt";
-char * t2 = "trace2.txt";
-char * t3 = "trace3.txt";
-char * t4 = "trace4.txt";
 
 
 int main(int argc, char * argv[])
@@ -48,7 +44,7 @@ int main(int argc, char * argv[])
     assoc = atoi(&argv[2][6]) ;
 
   }
-  //printf("assoc: %d\n", assoc);
+ 
   //amount of sets: cacheSize / (assoc * blockSize)
   int sets = atoi(argv[1])  / (assoc * atoi( argv[3]));
   //hashtable array to store cacheline Blocks 
@@ -74,38 +70,14 @@ int main(int argc, char * argv[])
     {
       break;
     }
-    //char  rw; 
+  
     char c = getRW(lineInput);
     int s = getAdd(lineInput);
     char * p = &lineInput[s];
-    /*if(strcmp(argv[4], "trace1.txt")==0) // || strcmp(argv[4], "trace2.txt")==0)
-    {
-    p = &lineInput[13];
-    rw = lineInput[11];
-    }      
-    else 
-    {
-    //printf("lineInput: %s\n\n", lineInput);  
-    p = &lineInput[19];
-    rw = lineInput[16];
-    }*/
-
-    //printf("rw: %c\n", rw); 
-    //printf("address: %s", p);
-    //char * address = (char *) malloc(sizeof(char)*49);
-    //address = hexToBin(p);
+   
     struct cacheBlock * blockA = makeCacheA(argv, p, assoc);
     struct cacheBlock * blockB = makeCacheB(argv, p, assoc);
-    //printf("bin: %s\n", address);
-    //printf("tag: %s index: %d\n\n\n", blockA->tag, blockA->index);
-     //printf("linr input: %s\n", lineInput);
-   /* if(arr[0]!=NULL)
-    {
-
-      printf("arr[0] tag: %s\n", arr[0] ->tag);
-    } */
-
-    //printf("tag bits len: %zd  tag bits:%s\n", strlen(blockA->tag), blockA->tag);
+   
     if(c == 'R')
     {
 
