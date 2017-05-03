@@ -97,9 +97,6 @@ int main(int argc, char * argv[])
 
     }
 
-
-
-
   }
   printf("cache A\n");
   printf("Memory reads: %d\nMemory writes: %d\nCache hits: %d\nCache misses: %d\n", res[0], res[1],
