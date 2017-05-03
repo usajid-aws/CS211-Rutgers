@@ -73,16 +73,6 @@ struct cacheBlock * makeCacheA(char *argv[], char *add, int assoc)
     b->valid = 1;
     b->tag1 = (add1 >> tagShift) & tagMask;
     b->index =( add1 >> blockOffset) & ((1 << index) - 1); 
-    //char * newTag = (char *) malloc(sizeof(char)*(tag+1));
-    //strncpy(newTag, add, tag);
-    //newTag[tag] = '\0';
-    //b->tag = newTag;
-    //char *  newIndex = (char *) malloc (sizeof(char) * (index+1)); 
-    //strncpy(newIndex, add+tag+1, index);
-    //newIndex[index] = '\0'; 
-    //int ind = indexToInt(newIndex); 
-    //b->index = ind;
-    //( atoi(add) >> blockOffset) & ((1 << index) - 1);
     b->next = NULL; 
 
     return b; 
@@ -104,17 +94,8 @@ struct cacheBlock * makeCacheA(char *argv[], char *add, int assoc)
   else
   {
     b->valid = 0;
-    //char newTag [tag+1];
     b->tag1 = (add1 >> tagShift) & tagMask;
     b->index =( add1 >> blockOffset) & ((1 << index) - 1); 
-   // strncpy(newTag, add, tag); 
-   // newTag[tag] = '\0';
-   // b->tag = newTag;
-   // char newIndex[index+1];
-   // strncpy(newIndex, add+tag, index);
-   // newIndex[index] = '\0';
-   // int ind = indexToInt(newIndex);
-   // b->index = ind ;  
     b->next=NULL;
     b -> linkcount = 0;
     return b; 
@@ -131,10 +112,6 @@ struct cacheBlock * makeCacheB(char *argv[], char *add, int assoc)
   int totalSets = cacheSize / (blockSize*assoc);
   int index = log2(totalSets);  
  unsigned long int tag  = 48 - index - blockOffset; 
- //unsigned long int  tagMask = (1L << tag) - 1;
- // int indexMask = (1 << index) - 1;
-//  int blockMask = (1 << blockOffset) - 1;
-  //int tagShift = index + blockOffset;
   // use variable to make cacheBlock
   //here check for type of assoc: 
   char *mapType = argv[2];
