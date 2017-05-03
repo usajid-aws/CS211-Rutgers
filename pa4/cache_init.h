@@ -145,12 +145,8 @@ struct cacheBlock * makeCacheB(char *argv[], char *add, int assoc)
   if(strcmp(mapType, "direct")==0)
   { 
 
-   b->valid = 0;
-  // b->index = (add1 >> (blockOffset + tag)) & 0xFFFFF;
-  // b->tag1 = (add1 >> blockOffset) & 0xFFFFF;
-  // char * add2 = (char *) malloc(sizeof(char)*49);
-   add = hexToBin(add);
-   // b->index =( add1 >> blockOffset) & ((1 << index) -1) ;
+    b->valid = 0;
+    add = hexToBin(add);
     char * newTag = (char *) malloc(sizeof(char)*(tag+1));
     strncpy(newTag, add+index, tag);
     newTag[tag] = '\0';
@@ -160,7 +156,6 @@ struct cacheBlock * makeCacheB(char *argv[], char *add, int assoc)
     newIndex[index] = '\0';
     int ind = indexToInt(newIndex);
     b->index = ind; 
-     // ( atoi(add) >> blockOffset) & ((1 << index) - 1);
     b->next = NULL; 
 
     return b; 
@@ -182,12 +177,8 @@ struct cacheBlock * makeCacheB(char *argv[], char *add, int assoc)
   else
   {
    b->valid = 0;
-  // b->index = (add1 >> (blockOffset + tag)) & 0xFFFFF;
-  // b->tag1 = (add1 >> blockOffset) & 0xFFFFF;
-  // char * add2 = (char *) malloc(sizeof(char)*49);
    add = hexToBin(add);
-   // b->index =( add1 >> blockOffset) & ((1 << index) -1) ;
-    char * newTag = (char *) malloc(sizeof(char)*(tag+1));
+   char * newTag = (char *) malloc(sizeof(char)*(tag+1));
     strncpy(newTag, add+index, tag);
     newTag[tag] = '\0';
     b->tag = newTag;
@@ -196,7 +187,6 @@ struct cacheBlock * makeCacheB(char *argv[], char *add, int assoc)
     newIndex[index] = '\0';
     int ind = indexToInt(newIndex);
     b->index = ind; 
-     // ( atoi(add) >> blockOffset) & ((1 << index) - 1);
     b->next = NULL; 
 
     return b; 
