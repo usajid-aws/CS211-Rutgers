@@ -26,8 +26,6 @@ void  cacheRead(char *argv[],struct cacheBlock *arr[], struct cacheBlock * cache
     }
     else //check tag
     {
-      // printf("block tag: %s  cache tag: %s\n", block->tag, cache->tag);
-
       //if tags are same, cache hit, else cache miss++, memRead++
       if( block->tag1 == cache->tag1 && type ==1 )
       {    
