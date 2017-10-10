@@ -1,1 +1,1 @@
-## CS211 bomb lab project
+## CS211 Assignments
